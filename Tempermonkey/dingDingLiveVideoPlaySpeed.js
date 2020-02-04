@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         钉钉GroupLive倍速控件油猴脚本
 // @namespace    http://cnily.home.blog
-// @version      1.1
+// @version      1.0
 // @description  没错！你可以倍速看钉钉GroupLive. 而且自定义倍速！
 // @author       Vincent George
 // @match        https://h5.dingtalk.com/group-live-share/*
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/George-Vincent/service/master/TemperMonkey/dingDingLiveVideoPlaySpeed.js
+// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tempermonkey/dingDingLiveVideoPlaySpeed.js
 // ==/UserScript==
 (function() {
     'use strict';
