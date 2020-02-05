@@ -8,7 +8,7 @@ speedButton.id = "hide";
 //General Style
 var appendCss = document.createElement("style");
 appendCss.type = "text/css";
-appendCss.innerHTML = ".control-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box; background-color:transparent;font-size:15px;border-width:0px 0px 3px 0px;color:white;border-color:snow;-webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s; transition: all .3s;} .control-button:hover{color:#42a7ff;border-color:#0088ff;} custom-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box;} .ele-change {border-width=1px; color=black; background-color=white; webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s; transition: all .3s;} .ele-change:hover {background-color:#aaa}";
+appendCss.innerHTML = ".control-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box; background-color:transparent;font-size:15px;border-width:0px 0px 3px 0px;color:white;border-color:snow;-webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s; transition: all .3s;} .control-button:hover{color:#42a7ff;border-color:#0088ff;} custom-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box;} .ele-change {border-width=1px; color=black; background-color=white; webkit-transition: background-color .3s;-moz-transition: background-color .3s;-ms-transition: background-color .3s;-o-transition: background-color .3s; transition: background-color .3s;} .ele-change:hover {background-color:#aaa}";
 document.getElementsByTagName("head")[0].appendChild(appendCss);
 
 //speedDiv Style
@@ -42,8 +42,6 @@ function changeSpeed() {
 	document.getElementsByClassName("lib-video")[1].playbackRate = speed.toFixed(1);
 	document.getElementById("currentSpeed").innerHTML = speed.toFixed(1);
 }
-
-//more settings
 speedButton.onclick = function() {
 	if (speedButton.id == "hide") {
 		speedDiv.style.visibility = "visible";
@@ -54,5 +52,13 @@ speedButton.onclick = function() {
 	}
 }
 
+function speedHide() {
+	if (document.getElementsByClassName("vjs-control-bar vjs-opacity-hidden vjs-hidden")[0]) {
+		speedDiv.style.visibility = "hidden";
+		speedButton.id = "hide";
+	}
+}
 
+//more settings
 speedDiv.innerHTML = "当前倍速：<text id='currentSpeed'>1.0</text> x<br></font><input type='text' placeholder='1.5' id='speedInput' size='3' maxlength='3'>&nbsp;&nbsp;<button class='custom-button ele-change' onclick='changeSpeed();' style='height:50%;width:40%'>切换</button>";
+setInterval("speedHide();", 100);
