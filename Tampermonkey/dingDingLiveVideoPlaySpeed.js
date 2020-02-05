@@ -6,7 +6,7 @@
 // @author       Vincent George
 // @match        https://h5.dingtalk.com/group-live-share/*
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tempermonkey/dingDingLiveVideoPlaySpeed.js
+// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/dingDingLiveVideoPlaySpeed.js
 // ==/UserScript==
 (function() {
     'use strict';
