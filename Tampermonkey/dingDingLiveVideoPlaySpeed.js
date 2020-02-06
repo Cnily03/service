@@ -23,7 +23,7 @@
 		//General Style
 		var appendCss = document.createElement("style");
 		appendCss.type = "text/css";
-		appendCss.innerHTML = ".control-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box; background-color:transparent;font-size:16px;border-width:0px 0px 3px 0px;color:white;border-color:snow;-webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s; transition: all .3s;}" +
+		appendCss.innerHTML = ".control-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box; background-color:transparent;font-size:16px;border-width:0px 0px 0px 0px;color:white;border-color:snow;-webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s; transition: all .3s;}" +
 			".control-button:hover{color:#42a7ff;border-color:#0088ff;}" +
 			"ele-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box;}" +
 			".ele-speed-change-button {border-width:2px; border-color:#c1c1c1; color:#c1c1c1; background-color:transparent; webkit-transition: color .3s,background-color .3s;-moz-transition: color .3s,background-color .3s;-ms-transition: color .3s,background-color .3s;-o-transition: color .3s,background-color .3s; transition: color .3s,background-color .3s;}" +
