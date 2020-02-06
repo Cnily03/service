@@ -2,7 +2,7 @@
 // @name         钉钉GroupLive倍速控件
 // @author       Vincent George
 // @License      CC 4.0 BY-SA
-// @version      1.2.3
+// @version      1.2.4
 // @description  没错！你可以倍速看钉钉GroupLive. 而且自定义倍速！
 // @namespace    http://cnily.home.blog
 // @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/dingDingLiveVideoPlaySpeed.js
@@ -72,16 +72,24 @@
 				speedButton.id = "hide";
 			}
 		}
+		
+		var isHide = true;
 		window.control_ele_hide = function() {
-			if (document.getElementsByClassName("vjs-control-bar vjs-opacity-hidden vjs-hidden")[0]) {
+			if (document.getElementsByClassName("vjs-control-bar vjs-opacity-hidden vjs-hidden")[0] && isHide) {
 				speedDiv.style.visibility = "hidden";
 				speedButton.id = "hide";
+				isHide = true;
 			} else {
-				$(".speedDiv").css("opacity", ($(".vjs-control-bar").css("opacity"))*0.90);
-				if(document.getElementById('speedInput')==document.activeElement) {
-					document.getElementsByClassName("vjs-control-bar vjs-opacity-hidden vjs-hidden")[0].className="vjs-control-bar";
-					$(".vjs-control-bar").css("opacity",1);
-				}
+				$(".speedDiv").css("opacity", ($(".vjs-control-bar").css("opacity")) * 0.90);
+				if (document.getElementById('speedInput') == document.activeElement) {
+					isHide = false;
+					$(".vjs-control-bar").css("transition", "all 0s 0s");
+					//$(".vjs-control-bar").css("opacity",1);
+					document.getElementsByClassName("vjs-control-bar vjs-opacity-hidden vjs-hidden")[0].className = "vjs-control-bar";
+				} else {
+					isHide = true;
+					$(".vjs-control-bar").css("transition", "all .3s ease");
+				};
 			}
 
 		}
