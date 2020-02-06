@@ -79,7 +79,7 @@
 			} else {
 				$(".speedDiv").css("opacity", ($(".vjs-control-bar").css("opacity"))*0.90);
 				if(document.getElementById('speedInput')==document.activeElement) {
-					$(".vjs-control-bar .vjs-opacity-hidden .vjs-hidden").attr("class","vjs-control-bar");
+					document.getElementsByClassName("vjs-control-bar vjs-opacity-hidden vjs-hidden")[0].className="vjs-control-bar";
 					$(".vjs-control-bar").css("opacity",1);
 				}
 			}
