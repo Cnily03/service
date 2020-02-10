@@ -2,7 +2,7 @@
 // @name         钉钉GroupLive倍速控件
 // @author       Vincent George
 // @License      CC 4.0 BY-SA
-// @version      1.2.4
+// @version      1.2.5
 // @description  没错！你可以倍速看钉钉GroupLive. 而且自定义倍速！
 // @namespace    http://cnily.home.blog
 // @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/dingDingLiveVideoPlaySpeed.js
@@ -23,9 +23,9 @@
 		//General Style
 		var appendCss = document.createElement("style");
 		appendCss.type = "text/css";
-		appendCss.innerHTML = ".control-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box; background-color:transparent;font-size:16px;border-width:0px 0px 0px 0px;color:white;border-color:snow;-webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s; transition: all .3s;}" +
+		appendCss.innerHTML = ".control-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box; background-color:transparent;font-size:16px;border-width:0px 0px 0px 0px;color:white;outline:none;border-color:snow;-webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s; transition: all .3s;}" +
 			".control-button:hover{color:#42a7ff;border-color:#0088ff;}" +
-			"ele-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box;}" +
+			"ele-button{display: -moz-flex;display: -moz-flexbox;display: -webkit-flexbox;display: flexbox;display: -moz-box;display: -webkit-box;display: box; outline: none;}" +
 			".ele-speed-change-button {border-width:2px; border-color:#c1c1c1; color:#c1c1c1; background-color:transparent; webkit-transition: color .3s,background-color .3s;-moz-transition: color .3s,background-color .3s;-ms-transition: color .3s,background-color .3s;-o-transition: color .3s,background-color .3s; transition: color .3s,background-color .3s;}" +
 			" .ele-speed-change-button:hover {color:black; background-color:#c1c1c1}";
 		document.getElementsByTagName("head")[0].appendChild(appendCss);
