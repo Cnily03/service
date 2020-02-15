@@ -60,5 +60,5 @@ function speedHide() {
 }
 
 //more settings
-speedDiv.innerHTML = "当前倍速：<text id='currentSpeed'>1.0</text> x<br></font><input type='text' placeholder='1.5' id='speedInput' size='3' maxlength='3'>&nbsp;&nbsp;<button class='custom-button ele-change' onclick='changeSpeed();' style='height:50%;width:40%'>切换</button>";
+speedDiv.innerHTML = "当前倍速：<text id='currentSpeed'>1.0</text> x<br><input type='text' placeholder='1.5' id='speedInput' size='3' maxlength='3'>&nbsp;&nbsp;<button class='custom-button ele-change' onclick='changeSpeed();' style='height:50%;width:40%'>切换</button>";
 setInterval("speedHide();", 100);
