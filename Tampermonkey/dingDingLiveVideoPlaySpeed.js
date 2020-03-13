@@ -2,7 +2,7 @@
 // @name         钉钉GroupLive倍速控件
 // @author       Vincent George
 // @License      CC 4.0 BY-SA
-// @version      1.3.0
+// @version      1.3.1
 // @description  没错！你可以倍速看钉钉GroupLive. 而且自定义倍速！
 // @namespace    http://cnily.home.blog
 // @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/dingDingLiveVideoPlaySpeed.js
@@ -61,7 +61,7 @@
 			var speed = parseFloat(document.getElementById("speedInput").value);
 			document.getElementsByClassName("lib-video")[1].playbackRate = speed.toFixed(1);
 			document.getElementById("currentSpeed").innerHTML = speed.toFixed(1);
-			speedButton.innerHTML = speed.toFixed(1) == 1.0 ? "倍速" : (speed.toFixed(1) + " x");
+			speedButton.innerHTML = speed.toFixed(1) == 1.0 ? "倍速" : (speed.toFixed(speed.toFixed(1) >= 10 ? 0 : 1) + " x");
 		}
 		speedButton.onclick = function() {
 			if (speedButton.id == "hide") {
@@ -73,7 +73,7 @@
 				speedButton.id = "hide";
 			}
 		}
-		
+
 		var isHide = true;
 		window.control_ele_hide = function() {
 			if (document.getElementsByClassName("vjs-control-bar vjs-opacity-hidden vjs-hidden")[0] && isHide) {
