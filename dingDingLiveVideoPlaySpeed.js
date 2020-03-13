@@ -33,9 +33,8 @@ speedButton.style.height = "25px";
 speedButton.style.width = "45px";
 document.getElementsByClassName("vjs-control-bar")[0].insertBefore(
 	speedButton,
-	document.getElementsByClassName("playback-rate-wrap")[0]
+	document.getElementsByClassName("playback-rate-wrap vjs-hidden")[0]
 );
-document.getElementsByClassName("playback-rate-wrap")[0].remove();
 
 //function
 function changeSpeed() {
