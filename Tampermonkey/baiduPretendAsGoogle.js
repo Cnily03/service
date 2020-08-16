@@ -12,7 +12,10 @@
 // ==/UserScript==
 window.onload = function () {
     'use strict';
-
+    //head
+    document.getElementsByTagName("title")[0].text = "Google";
+    document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/Cnily03/service/master/src/images/googleg_standard_color_128dp.png';
+    //def removeId
     function removeId(id) {
         document.getElementById(id).parentNode.removeChild(document.getElementById(id));
     }
@@ -109,5 +112,5 @@ window.onload = function () {
     document.getElementById('expendSubmit').onclick = function () {
         document.getElementById("su").click();
     }
-    
+
 }
