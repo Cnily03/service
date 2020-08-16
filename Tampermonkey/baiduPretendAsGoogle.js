@@ -14,8 +14,8 @@ window.onload = function () {
     'use strict';
     //head
     document.getElementsByTagName("title")[0].text = "Google";
-    document.querySelector('link[rel="icon"]').href = 'https://raw.githubusercontent.com/Cnily03/service/master/src/images/google_favicon.png';
-    document.querySelector('link[rel="shortcut icon"]').href = 'https://raw.githubusercontent.com/Cnily03/service/master/src/images/google_favicon.png';
+    document.querySelector('link[rel="icon"]').href = 'https://s1.ax1x.com/2020/08/16/dEsRUJ.png';
+    document.querySelector('link[rel="shortcut icon"]').href = 'https://s1.ax1x.com/2020/08/16/dEsRUJ.png';
     //def removeId
     function removeId(id) {
         document.getElementById(id).parentNode.removeChild(document.getElementById(id));
