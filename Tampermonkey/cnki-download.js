@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         中国知网免费下载
-// @author       Vincent George
-// @License      MIT
+// @author       Jevon Wang
+// @license      MIT
+// @icon         https://img.anfensi.com/upload/2019-2/201921384441720.png
 // @version      0.1.0
 // @description  通过图书馆等机构途径下载中国知网文献
-// @namespace    http://cnily.home.blog
+// @namespace    https://github.comm/Cnily03
 // @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/cnki-download.js
 // @match        https://kns.cnki.net/kcms/detail/detail.aspx*
 // @match        http://61.175.198.136:8083/rwt/288/http/GEZC6MJZFZZUPLSSG63B/kcms/detail/detail.aspx*
@@ -72,6 +73,7 @@ const loginAccount = {
                             // 登录成功
                             alert("登录成功！")
                             GM_setValue("zjlib.account", genAccountValue(username, password));
+                            loginAccount.hide();
                         }
                     }
                 }, 100)
@@ -85,15 +87,17 @@ const loginAccount = {
         document.head.appendChild(_css);
         // html
         const _html = createElementHTML(`<div id="lib-login-bar">
-        <div style="height:fit-content;width:90vw;max-width:320px;max-height:560px;background-color:#fff;box-shadow:0 0.2rem 0.5rem rgb(48 55 66 / 30%);border-radius:.1rem;padding:0 .4rem;display:flex;padding:.8rem;flex-direction:column;">
+        <div
+            style="height:fit-content;width:90vw;max-width:320px;max-height:560px;background-color:#fff;box-shadow:0 0.2rem 0.5rem rgb(48 55 66 / 30%);border-radius:.1rem;padding:0 .4rem;display:flex;padding:.8rem;flex-direction:column;">
             <div style="font-weight:600;font-size:1.2rem;color:#303742;padding:.8rem;">登录浙江图书馆</div>
-            <iframe name="hiddenIframe" hidden></iframe>
-            <form action="about:blank" target="hiddenIframe">
-                <div>
+            <div>
+                <iframe name="hiddenIframe" hidden></iframe>
+                <form action="about:blank" target="hiddenIframe">
                     <div style="padding: .4rem .8rem;">
                         <div style="margin-bottom: .4rem;">
                             <label for="lib-username" style="color:#303742;font-size:1rem;">用户名</label>
-                            <input type="text" id="lib-username" class="lib-login" placeholder="读者证号/身份证号" maxlength="18">
+                            <input type="text" id="lib-username" class="lib-login" placeholder="读者证号/身份证号"
+                                maxlength="18">
                         </div>
                     </div>
                     <div style="padding: 0 .8rem .8rem .8rem;">
@@ -102,23 +106,24 @@ const loginAccount = {
                             <input type="password" id="lib-password" class="lib-login" placeholder="密码" maxlength="16">
                         </div>
                     </div>
-                </div>
-                <div style="text-align: right;">
-                    <button class="lib-btn" onclick="hideLibLoginBar()">取消</button>
-                    <button type="submit" class="lib-btn lib-btn-dark" onclick="libVerifyLogin()">登录</button>
-                </div>
-            </form>
+                    <input type="submit" onclick="libVerifyLogin()" hidden>
+                </form>
+            </div>
+            <div style="text-align: right;">
+                <button class="lib-btn" onclick="hideLibLoginBar()">取消</button>
+                <button class="lib-btn lib-btn-dark" onclick="libVerifyLogin()">登录</button>
+            </div>
         </div>
-    </div>`)
+    </div>`);
         document.body.appendChild(_html);
     },
     hide: function () {
-        document.querySelector("#lib-login-bar").remove()
+        document.querySelector("#lib-login-bar").remove();
     }
 }
 unsafeWindow.hideLibLoginBar = loginAccount.hide;
 try {
-    GM_registerMenuCommand('设置机构用户', loginAccount.display);
+    GM_registerMenuCommand('账户设置', loginAccount.display);
 } catch (e) { }
 /********************************************/
 const PATH = window.location.origin + window.location.pathname;
@@ -216,7 +221,7 @@ function addBtnToCnki() {
     const href = `http://61.175.198.136:8083/rwt/288/http/GEZC6MJZFZZUPLSSG63B/kcms/detail/detail.aspx${search}`
     // create element
     const El_CAJDownload = createElementHTML(`<li class="btn-dlcaj"><a target="_blank" id="cajDown" name="cajDown" style="background-color: #0852eb;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|caj|" + encodeURIComponent(href)}"><i></i>浙江图书馆 CAJ下载</a></li>`);
-    const El_PDFDownload = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #0852eb;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
+    const El_PDFDownload = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #159316;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
     // append child
     const el_unfixed = createElementHTML(`<ul class="operate-btn" style="margin-bottom: .5rem"></ul>`);
     el_unfixed.appendChild(El_CAJDownload);
@@ -227,7 +232,7 @@ function addBtnToCnki() {
     )
     // create element
     const El_CAJDownload_fixed = createElementHTML(`<li class="btn-dlcaj"><a target="_blank" id="cajDown" name="cajDown" style="background-color: #0852eb; width: fit-content;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|caj|" + encodeURIComponent(href)}"><i></i>浙江图书馆 CAJ下载</a></li>`);
-    const El_PDFDownload_fixed = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #0852eb; width: fit-content;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
+    const El_PDFDownload_fixed = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #159316; width: fit-content;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
     // append child fixed
     const el_fixed = createElementHTML(`<ul class="operate-btn" style="display: block; margin-top: .5rem"></ul>`);
     el_fixed.appendChild(El_CAJDownload_fixed);
