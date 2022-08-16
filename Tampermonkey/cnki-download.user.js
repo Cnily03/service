@@ -6,7 +6,8 @@
 // @version      0.1.0
 // @description  通过图书馆等机构途径下载中国知网文献
 // @namespace    https://github.com/Cnily03
-// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/cnki-download.js
+// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/cnki-download.user.js
+// @updateURL    https://cdn.jsdelivr.net/gh/Cnily03/service@master/Tampermonkey/cnki-download.user.js
 // @match        https://kns.cnki.net/kcms/detail/detail.aspx*
 // @match        http://61.175.198.136:8083/rwt/288/http/GEZC6MJZFZZUPLSSG63B/kcms/detail/detail.aspx*
 // @match        http://61.175.198.136:8083/login.action*
