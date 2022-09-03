@@ -3,7 +3,7 @@
 // @author       Jevon Wang
 // @license      MIT
 // @icon         https://img.anfensi.com/upload/2019-2/201921384441720.png
-// @version      0.1.0
+// @version      0.1.1
 // @description  通过图书馆等机构途径下载中国知网文献
 // @namespace    https://github.com/Cnily03
 // @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/cnki-download.user.js
@@ -221,8 +221,8 @@ function addBtnToCnki() {
     ].join("&");
     const href = `http://61.175.198.136:8083/rwt/288/http/GEZC6MJZFZZUPLSSG63B/kcms/detail/detail.aspx${search}`
     // create element
-    const El_CAJDownload = createElementHTML(`<li class="btn-dlcaj"><a target="_blank" id="cajDown" name="cajDown" style="background-color: #0852eb;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|caj|" + encodeURIComponent(href)}"><i></i>浙江图书馆 CAJ下载</a></li>`);
-    const El_PDFDownload = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #159316;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
+    const El_CAJDownload = createElementHTML(`<li class="btn-dlcaj"><a target="_blank" id="cajDown" name="cajDown" style="background-color: #0852eb;" href="https://node.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|caj|" + encodeURIComponent(href)}"><i></i>浙江图书馆 CAJ下载</a></li>`);
+    const El_PDFDownload = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #159316;" href="https://node.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
     // append child
     const el_unfixed = createElementHTML(`<ul class="operate-btn" style="margin-bottom: .5rem"></ul>`);
     el_unfixed.appendChild(El_CAJDownload);
@@ -232,8 +232,8 @@ function addBtnToCnki() {
         document.querySelector("#DownLoadParts .operate-btn")
     )
     // create element
-    const El_CAJDownload_fixed = createElementHTML(`<li class="btn-dlcaj"><a target="_blank" id="cajDown" name="cajDown" style="background-color: #0852eb; width: fit-content;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|caj|" + encodeURIComponent(href)}"><i></i>浙江图书馆 CAJ下载</a></li>`);
-    const El_PDFDownload_fixed = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #159316; width: fit-content;" href="https://redirect.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
+    const El_CAJDownload_fixed = createElementHTML(`<li class="btn-dlcaj"><a target="_blank" id="cajDown" name="cajDown" style="background-color: #0852eb; width: fit-content;" href="https://node.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|caj|" + encodeURIComponent(href)}"><i></i>浙江图书馆 CAJ下载</a></li>`);
+    const El_PDFDownload_fixed = createElementHTML(`<li class="btn-dlpdf"><a target="_blank" id="pdfDown" name="pdfDown" style="background-color: #159316; width: fit-content;" href="https://node.cnily03.workers.dev/redirect?href=${encodeURIComponent(href)}&window.name=${"dl-cnki|pdf|" + encodeURIComponent(href)}"><i></i>浙江图书馆 PDF下载</a></li>`);
     // append child fixed
     const el_fixed = createElementHTML(`<ul class="operate-btn" style="display: block; margin-top: .5rem"></ul>`);
     el_fixed.appendChild(El_CAJDownload_fixed);
