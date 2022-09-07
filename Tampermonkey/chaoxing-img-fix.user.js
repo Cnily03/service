@@ -23,7 +23,7 @@
     }
     waitDOMContentLoaded(function () {
         document.querySelectorAll("img").forEach(elem => {
-            if (/https?:\/\/edu-image.nosdn.127.net/.test(elem.src)) {
+            if (/^https?:\/\/edu-image.nosdn.127.net/.test(elem.src)) {
                 elem.referrerPolicy = "no-referrer";
             }
         })
