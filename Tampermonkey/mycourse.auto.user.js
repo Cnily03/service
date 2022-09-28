@@ -3,7 +3,7 @@
 // @author       Jevon Wang
 // @license      MIT
 // @icon         https://mcwk.mycourse.cn/favicon.ico
-// @version      0.1.1
+// @version      0.1.2
 // @description  需要开发者工具开启移动端预览。注：尽量不要刷课！认真看安全知识！
 // @namespace    https://github.com/Cnily03
 // @match        *://weiban.mycourse.cn/*
@@ -62,7 +62,7 @@ if (isMatched("mcwk.mycourse.cn/course")) {
 }
 
 function registerMenu_1() {
-    menuCmdId_1 = GM_registerMenuCommand(`自动刷课：${({true:"ON",false:"OFF"})[isSimpleAuto]}`, function () {
+    menuCmdId_1 = GM_registerMenuCommand(`自动刷课：${({ true: "ON", false: "OFF" })[isSimpleAuto]}`, function () {
         isSimpleAuto = !isSimpleAuto;
         GM_setValue("options.isSimpleAuto", isSimpleAuto);
         GM_unregisterMenuCommand(menuCmdId_1);
@@ -75,7 +75,7 @@ function registerMenu_1() {
 }
 
 function registerMenu_2() {
-    menuCmdId_2 = GM_registerMenuCommand(`刷完后自动返回：${({true:"ON",false:"OFF"})[isAutoBack]}`, function () {
+    menuCmdId_2 = GM_registerMenuCommand(`刷完后自动返回：${({ true: "ON", false: "OFF" })[isAutoBack]}`, function () {
         isAutoBack = !isAutoBack;
         GM_setValue("options.isAutoBack", isAutoBack);
         GM_unregisterMenuCommand(menuCmdId_2);
@@ -86,7 +86,7 @@ function registerMenu_2() {
 }
 
 function registerMenu_3() {
-    menuCmdId_3 = GM_registerMenuCommand(`全自动连续刷课：${({true:"ON",false:"OFF"})[isFullyAuto]}`, function () {
+    menuCmdId_3 = GM_registerMenuCommand(`全自动连续刷课：${({ true: "ON", false: "OFF" })[isFullyAuto]}`, function () {
         isFullyAuto = !isFullyAuto;
         GM_setValue("options.isFullyAuto", isFullyAuto);
         GM_unregisterMenuCommand(menuCmdId_3);
@@ -188,7 +188,7 @@ async function autoDoCourse(isFullyAuto = false, isAutoBack = true) {
                 if (vdoms[i].currentTime != vdoms[i].duration)
                     vdoms[i].currentTime = vdoms[i].duration;
             }
-        } catch (e) {}
+        } catch (e) { }
     }
 
     const start_btns = [".page-start-btn", ".btn-start", ".page-start-button", ".startClick"];
@@ -206,7 +206,7 @@ async function autoDoCourse(isFullyAuto = false, isAutoBack = true) {
             }
         if (!isok) try {
             finishWxCourse();
-        } catch (e) {}
+        } catch (e) { }
     }
 
     // start page
@@ -243,33 +243,35 @@ async function autoDoCourse(isFullyAuto = false, isAutoBack = true) {
                         try {
                             document.querySelector(_btn).click();
                             break;
-                        } catch (e) {}
+                        } catch (e) { }
                 }
                 waitClick();
-            } else if (isFullyAuto || isAutoBack) {
-                // find ending page
-                endclick();
-                setTimeout(() => {
-                    window.name = isFullyAuto ? "user.next=autoEnterCourse" : "";
-                    // back
-                    for (const _dom of back_btns) {
-                        var isok = false;
-                        if (document.querySelector(_dom) !== null) {
-                            document.querySelector(_dom).click();
-                            isok = true;
-                            break;
+            } else if (detectDone()) {
+                if (isFullyAuto || isAutoBack) {
+                    // find ending page
+                    endclick();
+                    setTimeout(() => {
+                        window.name = isFullyAuto ? "user.next=autoEnterCourse" : "";
+                        // back
+                        for (const _dom of back_btns) {
+                            var isok = false;
+                            if (document.querySelector(_dom) !== null) {
+                                document.querySelector(_dom).click();
+                                isok = true;
+                                break;
+                            }
+                            unsafeWindow.alert = unsafeWindow.ALERT;
+                            if (!isok) window.history.go(-1);
                         }
                         unsafeWindow.alert = unsafeWindow.ALERT;
-                        if (!isok) window.history.go(-1);
-                    }
-                    unsafeWindow.alert = unsafeWindow.ALERT;
-                }, 500);
-            } else {
-                endclick();
-                setTimeout(() => {
-                    unsafeWindow.alert = unsafeWindow.ALERT;
-                }, 500);
-            }
+                    }, 500);
+                } else {
+                    endclick();
+                    setTimeout(() => {
+                        unsafeWindow.alert = unsafeWindow.ALERT;
+                    }, 500);
+                }
+            } else waitClick()
         }, 200)
     }
     waitClick();
