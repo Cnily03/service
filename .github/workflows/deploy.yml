@@ -1,0 +1,31 @@
+name: Deploy COS Static
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy COS
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          ref: 'master'
+          submodules: true
+
+      - name: Deploy to Tencent COS
+        env:
+          SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
+          BUCKET: ${{ vars.TENCENT_COS_BUCKET }}
+          REGION: ${{ vars.TENCENT_COS_REGION }}
+        run: |
+          sudo pip install coscmd
+          coscmd config -a ${SECRET_ID} -s ${SECRET_KEY} -b ${BUCKET} -r ${REGION}
+          coscmd upload -rs --delete ./ / -f
