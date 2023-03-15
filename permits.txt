@@ -1,0 +1,18 @@
+--------------------
+PDF.js
+--------------------
+https://github.com/alist-org/pdf.js
+
+Copyrright see source code
+
+License under Apache License, Version 2.0
+
+
+--------------------
+EPUB.js
+--------------------
+https://github.com/alist-org/static/blob/main/epub.js
+
+Copyrright alist-org
+
+License undeclared

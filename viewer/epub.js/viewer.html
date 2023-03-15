@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EPUB.js Viewer</title>
+
+    <script
+      src="js/lib/jszip.min.js"
+      integrity="sha256-rMfkFFWoB2W1/Zx+4bgHim0WC7vKRVrq6FTeZclH1Z4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/lib/epub.min.js"
+      integrity="sha256-BurhV0UQe0qlCMlVOCdSUfab+58RdWIfxFjZ9C7QgtQ="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/viewer.min.css">
+  </head>
+  <body>
+    <!-- <div id="title"></div> -->
+    <select id="toc"></select>
+    <div id="viewer" class="spreads"></div>
+    <a id="prev" href="#prev" class="arrow">‹</a>
+    <a id="next" href="#next" class="arrow">›</a>
+
+    <script src="js/viewer.min.js"></script>
+  </body>
+</html>
