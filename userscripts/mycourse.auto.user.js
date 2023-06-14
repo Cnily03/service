@@ -8,8 +8,8 @@
 // @namespace    https://github.com/Cnily03
 // @match        *://weiban.mycourse.cn/*
 // @match        *://mcwk.mycourse.cn/course*
-// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/mycourse.auto.user.js
-// @updateURL    https://cdn.jsdelivr.net/gh/Cnily03/service@master/Tampermonkey/mycourse.auto.user.js
+// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/userscripts/mycourse.auto.user.js
+// @updateURL    https://cdn.jsdelivr.net/gh/Cnily03/service@master/userscripts/mycourse.auto.user.js
 // @grant        unsafeWindow
 // @grant        GM_setValue
 // @grant        GM_getValue

@@ -5,7 +5,7 @@
 // @version      1.3.1
 // @description  没错！你可以倍速看钉钉GroupLive. 而且自定义倍速！
 // @namespace    http://cnily.home.blog
-// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/dingDingLiveVideoPlaySpeed.js
+// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/userscripts/dingDingLiveVideoPlaySpeed.js
 // @match        https://h5.dingtalk.com/group-live-share/*
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // @grant        none

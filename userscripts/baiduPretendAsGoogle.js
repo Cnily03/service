@@ -5,7 +5,7 @@
 // @version      0.0.1
 // @description  百度伪装成谷歌！
 // @namespace    http://cnily.home.blog
-// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/baiduPretendAsGoogle.js
+// @updateURL    https://raw.githubusercontent.com/Cnily03/service/master/userscripts/baiduPretendAsGoogle.js
 // @match        https://www.baidu.com/*
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // @grant        none

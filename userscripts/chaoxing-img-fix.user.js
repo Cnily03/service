@@ -6,8 +6,8 @@
 // @version      0.1.1
 // @description  修复edu-image.nosdn.127.net的图片在chaoxing.com无法显示的问题
 // @namespace    https://github.com/Cnily03
-// @downloadURL  https://raw.githubusercontent.com/Cnily03/service/master/Tampermonkey/chaoxing-img-fix.user.js
-// @updateURL    https://cdn.jsdelivr.net/gh/Cnily03/service@master/Tampermonkey/chaoxing-img-fix.user.js
+// @downloadURL  https://raw.githubusercontent.com/Cnily03/service/master/userscripts/chaoxing-img-fix.user.js
+// @updateURL    https://cdn.jsdelivr.net/gh/Cnily03/service@master/userscripts/chaoxing-img-fix.user.js
 // @match        https://mooc1.chaoxing.com/mooc2/work/*
 // @grant        unsafeWindow
 // ==/UserScript==
