@@ -47,7 +47,7 @@ echo "- Installing openClash dependencies"
 opkg install coreutils-nohup bash iptables dnsmasq-full curl ca-certificates ipset ip-full iptables-mod-tproxy iptables-mod-extra libcap libcap-bin ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci luci-base --force-overwrite
 # Install openClash ipk
 echo "- Installing openClash ipk"
-wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/package/master/luci-app-openclash_0.45.121-beta_all.ipk && \
+wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/package/master/luci-app-openclash_0.45.129-beta_all.ipk && \
 opkg install luci-app-openclash*.ipk --force-overwrite
 mkdir -p /etc/openclash/core
 # Install openClash core clash
@@ -57,9 +57,9 @@ tar zxvf clash-linux-arm64.tar.gz -C /etc/openclash/core && rm -rf clash-linux-a
 chmod +x /etc/openclash/core/clash
 # Install openClash core clash_tun
 echo "- Installing openClash core clash_tun"
-wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/premium/clash-linux-arm64-2023.04.16-20-g212da6a.gz && \
-gunzip -d clash-linux-arm64-2023.04.16-20-g212da6a.gz && \
-mv clash-linux-arm64-2023.04.16-20-g212da6a /etc/openclash/core/clash_tun && \
+wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/premium/clash-linux-arm64-2023.06.30.gz && \
+gunzip -d clash-linux-arm64-2023.06.30.gz && \
+mv clash-linux-arm64-2023.06.30 /etc/openclash/core/clash_tun && \
 chmod +x /etc/openclash/core/clash_tun
 # Install openClash core clash_meta
 echo "- Installing openClash core clash_meta"
