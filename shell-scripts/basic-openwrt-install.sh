@@ -47,7 +47,7 @@ echo "- Installing openClash dependencies"
 opkg install coreutils-nohup bash iptables dnsmasq-full curl ca-certificates ipset ip-full iptables-mod-tproxy iptables-mod-extra libcap libcap-bin ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci luci-base --force-overwrite
 # Install openClash ipk
 echo "- Installing openClash ipk"
-wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/package/master/luci-app-openclash_0.45.121-beta_all.ipk && \
+wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/package/master/luci-app-openclash_0.45.129-beta_all.ipk && \
 opkg install luci-app-openclash*.ipk --force-overwrite
 mkdir -p /etc/openclash/core
 # Install openClash core clash
