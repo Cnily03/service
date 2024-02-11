@@ -1,31 +1,43 @@
 !function () {    // 文件夹双击变单击
+    let prevent = false
     setInterval(() => {
-        document.querySelector('.el-table__body')
-            .querySelectorAll('.el-table__row').forEach(e => {
-                let is_directory = false
-                if (e.querySelector('.cell>label.is-disabled')) {
-                    is_directory = true
-                } else {
-                    e.querySelectorAll(".cell>div:nth-child(2)").forEach(l => {
-                        if (l.innerHTML === '') {
-                            is_directory = true
-                        }
-                    })
-                }
-                if (is_directory) {
-                    e.style['cursor'] = 'pointer'
-                    e.setAttribute('signle-click', '1')
-                    e.addEventListener('click', function dbclick() {
-                        e.removeEventListener('click', dbclick)
-                        if (e.getAttribute('signle-click') === '1') {
-                            e.click()
-                        }
-                    })
-                } else {
-                    e.style['cursor'] = ''
-                    e.removeAttribute('signle-click')
-                }
-            })
+        if (prevent) return
+        const trlist = document.querySelector('.el-table__body')
+            .querySelectorAll('.el-table__row')
+        trlist.forEach(e => {
+            if (!e.isdb) e.isdb = () => e.__single_click === true
+            if (!e.setdb) e.setdb = () => e.__single_click = true
+            if (!e.deldb) e.deldb = () => e.__single_click = false
+            let is_folder = false, is_back = false, is_bucket = false
+
+            let svgUseElList = e.querySelectorAll(".cell svg>use")
+            for (let svgUseEl of svgUseElList) {
+                const type = svgUseEl.getAttribute('xlink:href')
+                if (type === '#icon-file-type-folder') is_folder = true
+                else if (type === '#icon-file-type-back') is_back = true
+                else if (type === '#icon-file-type-root') is_bucket = true
+                break
+            }
+            let is_directory = is_folder || is_back || is_bucket
+
+            if (is_directory) {
+                if (e.isdb()) return // no repeat
+                e.style['cursor'] = 'pointer'
+                e.setdb()
+                e.addEventListener('click', function dbclick() {
+                    if (!e.isdb()) e.removeEventListener('click', dbclick)
+                    // restore
+                    prevent = true
+                    trlist.forEach(e => e.__single_click = false)
+                    prevent = false
+                    // click
+                    e.click()
+                })
+            } else {
+                e.style['cursor'] = ''
+                e.deldb()
+            }
+        })
     }, 100)
 }()
 
