@@ -21,11 +21,11 @@ opkg update
 # Install for OpenWrt official SnapShots and ImmortalWrt
 echo "- Installing Argon Theme for OpenWrt official SnapShots and ImmortalWrt"
 opkg install luci-compat luci-lib-ipkg
-wget --no-check-certificate https://ghproxy.com/https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.3/luci-theme-argon_2.3_all.ipk && \
+wget --no-check-certificate https://ghproxy.net/https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.3/luci-theme-argon_2.3_all.ipk && \
 opkg install luci-theme-argon*.ipk
 # Install luci-app-argon-config
 echo "- Installing luci-app-argon-config"
-wget --no-check-certificate https://ghproxy.com/https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.9/luci-app-argon-config_0.9_all.ipk && \
+wget --no-check-certificate https://ghproxy.net/https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.9/luci-app-argon-config_0.9_all.ipk && \
 opkg install luci-app-argon-config*.ipk
 
 # Install language for zh-cn
@@ -47,23 +47,30 @@ echo "- Installing openClash dependencies"
 opkg install coreutils-nohup bash iptables dnsmasq-full curl ca-certificates ipset ip-full iptables-mod-tproxy iptables-mod-extra libcap libcap-bin ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci luci-base --force-overwrite
 # Install openClash ipk
 echo "- Installing openClash ipk"
-wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/package/master/luci-app-openclash_0.45.129-beta_all.ipk && \
+
+ipk_fn=luci-app-openclash_0.46.001-beta_all
+newest_ipk_fn="$(curl -s "https://api.github.com/repos/vernesong/OpenClash/contents/master?ref=package" | grep "luci-app-openclash" | head -n 1 | sed -n 's/.*luci-app-openclash_\(.*\)\.ipk.*/\1/p')"
+[ -n "$newest_ipk_fn" ] && ipk_fn="luci-app-openclash_$newest_ipk_fn"
+wget --no-check-certificate "https://ghproxy.net/https://raw.githubusercontent.com/vernesong/OpenClash/package/master/$ipk_fn.ipk" && \
 opkg install luci-app-openclash*.ipk --force-overwrite
 mkdir -p /etc/openclash/core
 # Install openClash core clash
 echo "- Installing openClash core clash"
-wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz && \
+wget --no-check-certificate https://ghproxy.net/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz && \
 tar zxvf clash-linux-arm64.tar.gz -C /etc/openclash/core && rm -rf clash-linux-arm64.tar.gz && \
 chmod +x /etc/openclash/core/clash
 # Install openClash core clash_tun
 echo "- Installing openClash core clash_tun"
-wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/premium/clash-linux-arm64-2023.06.30.gz && \
-gunzip -d clash-linux-arm64-2023.06.30.gz && \
-mv clash-linux-arm64-2023.06.30 /etc/openclash/core/clash_tun && \
+tun_fn=clash-linux-arm64-2023.08.17-13-gdcc8d87
+newest_tun_fn="$(curl -s "https://api.github.com/repos/vernesong/OpenClash/contents/master/premium?ref=core" | grep "clash-linux-arm64" | head -n 1 | sed -n 's/.*clash-linux-arm64-\(.*\)\.gz.*/\1/p')"
+[ -n "$newest_tun_fn" ] && tun_fn="clash-linux-arm64-$newest_tun_fn"
+wget --no-check-certificate "https://ghproxy.net/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/premium/$tun_fn.gz" && \
+gunzip -d "$tun_fn.gz" && \
+mv "$tun_fn" /etc/openclash/core/clash_tun && \
 chmod +x /etc/openclash/core/clash_tun
 # Install openClash core clash_meta
 echo "- Installing openClash core clash_meta"
-wget --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz && \
+wget --no-check-certificate https://ghproxy.net/https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz && \
 tar zxvf clash-linux-arm64.tar.gz && rm -rf clash-linux-arm64.tar.gz && \
 mv clash /etc/openclash/core/clash_meta && \
 chmod +x /etc/openclash/core/clash_meta
