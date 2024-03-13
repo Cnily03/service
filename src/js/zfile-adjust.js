@@ -25,7 +25,7 @@
                 e.style['cursor'] = 'pointer'
                 e.setdb()
                 e.addEventListener('click', function dbclick() {
-                    if (!e.isdb()) e.removeEventListener('click', dbclick)
+                    if (!e.isdb()) return e.removeEventListener('click', dbclick)
                     // restore
                     prevent = true
                     trlist.forEach(e => e.__single_click = false)
@@ -41,15 +41,11 @@
     }, 100)
 }()
 
-!function () { // 移除部分 console.log
-    const l = console.log;
-    console.log = function (...args) {
-        const s = args.join(' ');
-        if (s.startsWith("[z-") || s.startsWith("加载自定义 js, src:"))
-            return;
-        return l(...args)
-    }
+!function () { // header logo 修改鼠标样式
+    const logo = document.querySelector('.zfile-header #zfile-home-logo')
+    logo.style['cursor'] = 'pointer'
 }()
+
 !function () { // 备案信息修复
     document.querySelector("[href=\"https://beian.miit.gov.cn/\"]").parentElement.childNodes
         .forEach((e, i) => {
@@ -59,4 +55,41 @@
                 e.data = " | " + e.data
             }
         })
+}()
+
+!function () { // 移除部分 console 输出
+    const __log = console.log;
+    const __time = console.time;
+    const __timeEnd = console.timeEnd;
+    console.log = function (...args) {
+        const s = args.join(' ');
+        let blacklist_startsWith = [
+            "加载自定义 js, src:",
+            "[z-",
+        ]
+        for (let e of blacklist_startsWith) {
+            if (s.startsWith(e)) return
+        }
+        return __log(...args)
+    }
+    console.time = function (...args) {
+        const s = args.join(' ');
+        let blacklist_regExp = [
+            /^\/api\/[^\s]+$/
+        ]
+        for (let e of blacklist_regExp) {
+            if (e.test(s)) return
+        }
+        return __time(...args)
+    }
+    console.timeEnd = function (...args) {
+        const s = args.join(' ');
+        let blacklist_regExp = [
+            /^\/api\/[^\s]+$/
+        ]
+        for (let e of blacklist_regExp) {
+            if (e.test(s)) return
+        }
+        return __timeEnd(...args)
+    }
 }()
