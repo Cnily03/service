@@ -6,8 +6,8 @@
 // @version      0.1.2
 // @description  Beautify the DuckDuckGo search results page.
 // @namespace    https://github.com/Cnily03
-// @downloadURL  https://raw.githubusercontent.com/Cnily03/service/master/userscripts/duckduckgo-beautifier.js
-// @updateURL    https://cdn.jsdelivr.net/gh/Cnily03/service@master/userscripts/duckduckgo-beautifier.js
+// @downloadURL  https://raw.githubusercontent.com/Cnily03/service/master/userscripts/duckduckgo-beautifier.user.js
+// @updateURL    https://cdn.jsdelivr.net/gh/Cnily03/service@master/userscripts/duckduckgo-beautifier.user.js
 // @match        https://duckduckgo.com/*
 // ==/UserScript==
 
