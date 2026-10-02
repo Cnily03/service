@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "apple-relay.apple.com",
+        "apple-relay.cloudflare.com",
+        "apple-relay.fastly-edge.com",
+        "anthropic.com",
+        "claude.ai",
+        "claude.com",
+        "perplexity.ai",
+        "perplexity.com",
+        "pplx.ai",
+        "ai.com",
+        "algolia.net",
+        "api.statsig.com",
+        "auth0.com",
+        "chatgpt.com",
+        "chatgpt.livekit.cloud",
+        "client-api.arkoselabs.com",
+        "events.statsigapi.net",
+        "featuregates.org",
+        "host.livekit.cloud",
+        "identrust.com",
+        "intercom.io",
+        "intercomcdn.com",
+        "launchdarkly.com",
+        "oaistatic.com",
+        "oaiusercontent.com",
+        "observeit.net",
+        "openai.com",
+        "openaiapi-site.azureedge.net",
+        "openaicom.imgix.net",
+        "segment.io",
+        "sentry.io",
+        "turn.livekit.cloud",
+        "sora.com",
+        "notion.com",
+        "cursor-cdn.com",
+        "cursor.sh",
+        "cursor.com",
+        "openrouter.ai",
+        "x.ai",
+        "grok.com"
+      ],
+      "domain": [
+        "cp4.cloudflare.com",
+        "smoot.apple.com",
+        "guzzoni.apple.com",
+        "cdn.usefathom.com",
+        "browser-intake-datadoghq.com",
+        "chat.openai.com.cdn.cloudflare.net",
+        "openai-api.arkoselabs.com",
+        "openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net",
+        "production-openaicom-storage.azureedge.net",
+        "static.cloudflareinsights.com"
+      ],
+      "domain_keyword": [
+        "apple-relay",
+        "openai"
+      ],
+      "ip_cidr": [
+        "24.199.123.28/32",
+        "64.23.132.171/32"
+      ]
+    }
+  ]
+}
