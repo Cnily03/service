@@ -1,0 +1,94 @@
+{
+  "id": "plugin-sync-configuration-webdav",
+  "name": "配置同步 - WebDAV",
+  "version": "v4.2.0",
+  "group": "Extensions",
+  "description": "使用 WebDAV 备份和恢复 GUI 配置",
+  "tags": [
+    "实用工具",
+    "功能扩展",
+    "配置同步"
+  ],
+  "type": "Http",
+  "url": "https://raw.githubusercontent.com/Cnily03/service/master/plugins/gfs/sync-configuration-webdav/plugin.js",
+  "path": "data/plugins/plugin-sync-configuration-webdav.js",
+  "triggers": [
+    "on::manual"
+  ],
+  "hasUI": false,
+  "menus": {
+    "更新依赖": "Update",
+    "测试连接": "Test",
+    "立即备份": "Backup",
+    "同步至本地": "Sync",
+    "查看备份列表": "List",
+    "管理备份列表": "Remove"
+  },
+  "context": {
+    "profiles": {},
+    "subscriptions": {},
+    "rulesets": {},
+    "plugins": {},
+    "scheduledtasks": {}
+  },
+  "status": 0,
+  "configuration": [
+    {
+      "id": "ID_webdav_address",
+      "title": "WebDAV地址",
+      "description": "例如：https://file.example.com/dav",
+      "key": "Address",
+      "component": "Input",
+      "value": "",
+      "options": []
+    },
+    {
+      "id": "ID_webdav_username",
+      "title": "用户名",
+      "description": "",
+      "key": "Username",
+      "component": "Input",
+      "value": "",
+      "options": []
+    },
+    {
+      "id": "ID_webdav_password",
+      "title": "WebDAV密码",
+      "description": "",
+      "key": "WebDAVPassword",
+      "component": "Input",
+      "value": "",
+      "options": []
+    },
+    {
+      "id": "ID_webdav_path",
+      "title": "保存路径",
+      "description": "例如：GUI.for.SingBox/backups",
+      "key": "DataPath",
+      "component": "Input",
+      "value": "",
+      "options": []
+    },
+    {
+      "id": "ID_zip_password",
+      "title": "ZIP密码（可选）",
+      "description": "留空则不加密；填写后使用该密码加密和解密 ZIP",
+      "key": "Password",
+      "component": "Input",
+      "value": "",
+      "options": []
+    },
+    {
+      "id": "ID_create_path",
+      "title": "路径不存在时尝试创建",
+      "description": "",
+      "key": "CreateOnNotExist",
+      "component": "Switch",
+      "value": true,
+      "options": []
+    }
+  ],
+  "disabled": false,
+  "install": true,
+  "installed": false
+}
