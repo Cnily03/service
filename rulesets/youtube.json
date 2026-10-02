@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_keyword": [
+        "youtube"
+      ],
+      "domain_suffix": [
+        "youtu.be",
+        "googlevideo.com",
+        "ytimg.com",
+        "ggpht.com",
+        "gvt2.com",
+        "yt.be"
+      ],
+      "ip_cidr": [
+        "172.217.0.0/16",
+        "74.125.0.0/16",
+        "64.233.160.0/19",
+        "142.250.0.0/15",
+        "216.58.192.0/18"
+      ]
+    }
+  ]
+}

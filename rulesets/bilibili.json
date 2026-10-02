@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_keyword": [
+        "qiyi"
+      ],
+      "domain_suffix": [
+        "qy.net",
+        "acg.tv",
+        "acgvideo.com",
+        "b23.tv",
+        "biliapi.com",
+        "biliapi.net",
+        "bilibili.com",
+        "biligame.com",
+        "biligame.net",
+        "biligames.com",
+        "bilivideo.com",
+        "hdslb.com",
+        "im9.com"
+      ],
+      "ip_cidr": [
+        "101.227.0.0/16",
+        "101.224.0.0/13",
+        "119.176.0.0/12"
+      ],
+      "domain": [
+        "upos-hz-mirrorakam.akamaized.net"
+      ]
+    }
+  ]
+}
